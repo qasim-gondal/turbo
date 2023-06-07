@@ -1,0 +1,15 @@
+  <nav>
+  <ul>
+    <li><%= link_to 'Home', root_path %></li>
+    <li><%= link_to 'About' ,about_path %></li>
+    <li><%= link_to 'Contact' ,contact_path %></li>
+  </ul>
+  <%= turbo_frame_tag 'navbar' do %>
+    <%= form_with url: '#' ,
+    method: :get,
+    id: 'navbar-form', data: {turbo_permanent: true} do |f| %>
+      <%= f.text_field :query %>
+      <%= f.submit 'Search' %>
+    <% end %>
+  <% end %>
+</nav>
